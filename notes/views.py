@@ -10,3 +10,12 @@ def get_notes(request):
     if request.method == "GET":
         return JsonResponse({"notes": NOTES})
     return None
+
+def health_check(request):
+    return JsonResponse(
+        data={
+            "status": "healthy",
+            "message": "Server is awake!"
+        },
+        status=200
+    )
